@@ -11,7 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.kafka.core.KafkaTemplate;
 
 import static com.project.apikafkahandler.constants.Constants.TOPIC;
-import static com.project.apikafkahandler.utils.TestUtils.createGenericQueueElement;
+import static com.project.apikafkahandler.utils.TestUtils.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -50,7 +50,7 @@ class AddServiceImplTest {
 
         AddResponse response = addService.addElement(element);
 
-        assertNull(response);
+        assertEquals(addResponseNOK(), response);
         verify(kafkaTemplate, times(1)).send(TOPIC, element);
     }
 }

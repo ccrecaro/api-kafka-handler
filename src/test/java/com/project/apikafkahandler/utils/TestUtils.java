@@ -1,7 +1,6 @@
 package com.project.apikafkahandler.utils;
 
-import com.project.apikafkahandler.dto.Metadata;
-import com.project.apikafkahandler.dto.QueueElement;
+import com.project.apikafkahandler.dto.*;
 
 import java.util.Date;
 
@@ -20,6 +19,19 @@ public class TestUtils {
                 .timestamp(new Date())
                 .message("test")
                 .metadata(createGenericMetadata())
+                .build();
+    }
+
+    public static AddResponse addResponseNOK() {
+        return AddResponse.builder()
+                .response(responeNOK())
+                .build();
+    }
+
+    public static Response responeNOK() {
+        return Response.builder()
+                .status("-1")
+                .message("NOK")
                 .build();
     }
 }
